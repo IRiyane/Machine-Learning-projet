@@ -40,3 +40,11 @@ The local repository contains the specification and discussion log. The notebook
 ## 2026-11-20 — Moodle submission layout
 
 We moved the specification to `report/` and the working discussion log to `ai_governance/`. We placed the three required governance files at the repository root as shown in the Lab 5 diagram and left their entries open for the team to document. The project notebooks will go in `notebooks/`. The final PDF and pinned dependencies are still pending.
+
+## 2026-11-20 — Repository guide for AI agents
+
+We added a root `AGENTS.md` to help new agents locate the submission and discussion log, pick up the Week 2 baseline, verify the evaluation protocol, and keep the required governance records.
+
+## 2026-11-20 — Scope of the agent guide
+
+We shortened the agent guide to cover how to work in the repository. The project specification provides the methodology, and this log records decisions and progress.
