@@ -55,4 +55,11 @@ Nathan asked the agent to record each substantial project prompt with its output
 
 ## 2026-11-20 — Class stratification and the new-topic test
 
-A teammate noted that the Week 2 split preserves the minority-class share. The exported files have 39% AI essays in each set and share all 15 topics. Under the agreed protocol, reserve three topics before drawing the familiar-topic test, then match the class counts across both final tests. [Prompt and response](../PROMPT_LOG.md#2026-11-20--class-proportions-and-topic-holdout-in-week-2)
+A teammate noted that the Week 2 split preserves the minority-class share. The exported files have 39% AI essays in each set (3,120 of 8,000 in training and 780 of 2,000 in testing) and share all 15 topics. We found no identical essay in the two files. The current split therefore provides a test set for familiar topics. The notebook has prepared that set and so far reports cross-validation results from the training set. [Week 2 notebook](../notebooks/Week2.ipynb)
+
+We want to evaluate the same model in two situations.
+
+- **Familiar topics.** The model trains on some essays about cell phones at school. We test it on other essays about cell phones at school that it has never seen.
+- **Unseen topics.** If we hold out driverless cars, every essay about driverless cars goes into the unseen-topic test. The model encounters that topic for the first time when we test it.
+
+To build both final tests, reserve all essays from three topics before creating the training and validation sets. Then sample the familiar-topic test from the remaining topics, matching the number of human essays and the number of AI essays in the unseen-topic test. Use the leftover essays for training and validation. Evaluate the same fitted model on both tests and compare the AI-class F1 score and the percentage of human essays flagged as AI. This comparison shows how performance changes when the topic is new. [Evaluation protocol](../report/project-specification.md#9-evaluation-strategy-data-splitting-methodology-evaluation-metrics-and-validation-approach) · [Prompt and response](../PROMPT_LOG.md#2026-11-20--class-proportions-and-topic-holdout-in-week-2)
