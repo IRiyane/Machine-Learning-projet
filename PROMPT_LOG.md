@@ -130,3 +130,46 @@ Sur les trois livrables demandés, **une baseline simple et des premiers résult
 J’ai ajouté le champ **AI model** au journal des prompts et aux consignes du dépôt. Les entrées de ce chat indiquent **Codex, famille GPT-6**. J’ai marqué **« Not recorded »** dans les deux entrées antérieures où je n’ai pas pu vérifier le modèle. Les prochaines entrées devront indiquer la variante exacte quand elle est connue.
 
 [Prompt log](PROMPT_LOG.md) · [Repository instructions](AGENTS.md)
+
+## 2026-11-20 — Review of the Week 2 report
+
+- **Student** — Nathan Kang
+- **AI model** — Codex (GPT-6 family; exact variant not recorded)
+- **Purpose** — Compare the newly pulled Week 2 report with the agreed project protocol and identify what to add.
+- **Checks** — Read the report from commit `0a47bab`, compared it with the project specification and discussion log, and used the previously reproduced notebook outputs and normalized duplicate counts.
+
+### Exact prompt
+
+> J'ai pull le report du week2, qu'est ce qu'il faudrait ajouter comparé à ce qu'on s'est dit?
+
+### Output
+
+Le rapport décrit bien ce qui a été exécuté en Week 2. Il présente le corpus, explique le sous-échantillon de 10 000 essais et donne les résultats du modèle majoritaire. **L’ajout prioritaire est le protocole sur les sujets inédits**, qui est au cœur de votre spécification.
+
+1. **Objectif et découpage.** Rétablir le titre ou la question de recherche sur les sujets inédits. Présenter le découpage actuel comme une première expérience, puis décrire le protocole convenu. Réserver trois sujets entiers, constituer un test « sujets vus » avec les mêmes effectifs humains/IA et faire la validation en trois plis groupés par sujet sur le train. Le futur test sur un générateur d’IA inédit peut rester une extension.
+2. **Baseline et résultats.** Nommer les chiffres actuels comme les résultats du `DummyClassifier` en validation croisée sur le train. Une fois **TF-IDF + régression logistique** exécuté, ajouter un tableau comparant, pour les deux tests, le **F1 de la classe IA**, le **taux de faux positifs** (essais humains signalés / total des essais humains) et les matrices de confusion. Présenter les scores après les avoir mesurés.
+3. **Nettoyage.** Préciser que le notebook trouve zéro doublon **exact**. Après normalisation de l’Unicode, de la casse et des espaces, le corpus brut contient **six groupes de doublons, soit douze lignes**. Documenter la règle retenue et le nombre de lignes conservées avant le découpage final.
+4. **Limites.** La provenance des textes est très liée à la classe. Présenter la longueur des essais comme une piste à tester, car une partie de l’écart observé peut venir des différences entre sources.
+
+Dans la conclusion, je distinguerais le **résultat déjà mesuré** avec le modèle majoritaire et l’**expérience à terminer** avec TF-IDF sur les deux tests.
+
+[Week 2 report](<report/Week 2. Data Preparation and Baseline.md>) · [Project specification](report/project-specification.md)
+
+## 2026-11-20 — Add the topic-based evaluation to the Week 2 report
+
+- **Student** — Nathan Kang
+- **AI model** — Codex (GPT-6 family; exact variant not recorded)
+- **Purpose** — Add the agreed topic-based split and validation plan to the report.
+- **Checks** — Checked the report's existing split and the project specification. Verified that the new text describes future work and that the generator holdout is presented as optional.
+
+### Exact prompt
+
+> oui ajoute ça
+
+The student annotated the recommendation to reserve three topics, match the class counts in a familiar-topic test, and use three validation folds grouped by topic.
+
+### Output
+
+J’ai ajouté au rapport le découpage prévu avec trois sujets réservés, deux tests aux mêmes effectifs par classe et trois plis de validation groupés par sujet. Le test sur un générateur inédit figure comme extension facultative.
+
+[Updated Week 2 report](<report/Week 2. Data Preparation and Baseline.md>)

@@ -79,3 +79,15 @@ The two exported subsets have zero empty fields, zero normalized duplicate essay
 ## 2026-11-20 — AI model attribution in the prompt log
 
 We added a model field to each prompt entry and updated the repository instructions to record the assistant, model, and exact variant when known. We recorded the known Codex model family for entries from this chat and marked the two earlier models as not recorded. [Prompt and response](../PROMPT_LOG.md#2026-11-20--recording-the-ai-model)
+
+## 2026-11-20 — Gaps in the pulled Week 2 report
+
+The report documents the exploratory analysis, class-stratified split and majority-class cross-validation results. It uses a stylistic-feature title and plans a generator holdout. The agreed project question concerns held-out writing topics, so the report should distinguish the current experiment from the planned two-test protocol and measure TF-IDF with logistic regression before reporting scores. We also identified the distinction between exact and normalized duplicates, the need to report the human-essay false positive rate, and the potential influence of essay source on observed length differences. [Prompt and response](../PROMPT_LOG.md#2026-11-20--review-of-the-week-2-report)
+
+## 2026-11-20 — Interpreting duplicates and essay length
+
+Normalization revealed six pairs of essays with the same text after standardizing Unicode, case, and whitespace. Keeping one essay per pair removes six rows. Dropping both essays in each pair removes twelve, as the earlier draft script did. The report should state which rule the team applies. The observed mean lengths of 418 words for human essays and 329 for AI essays describe this corpus. Different writing conditions across sources could contribute to the gap.
+
+## 2026-11-20 — Topic-based evaluation added to the Week 2 report
+
+We added the planned three-topic holdout, matched familiar-topic test, and three prompt-grouped validation folds to the report. The existing five-fold experiment remains documented as work already completed. The generator holdout is described as an optional extension. [Updated Week 2 report](<../report/Week 2. Data Preparation and Baseline.md>)
