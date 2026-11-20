@@ -1,6 +1,6 @@
 # Project discussion log
 
-The submission is kept in [project-specification.md](project-specification.md). This file records the project discussions, the reasoning behind decisions, and questions that remain open.
+The submission is kept in [project-specification.md](../report/project-specification.md). This file records the project discussions, the reasoning behind decisions, and questions that remain open.
 
 ## 2026-11-20 — Week 2 requirements and current progress
 
@@ -27,3 +27,16 @@ We asked whether splitting essays from a single topic into training and test set
 ## 2026-11-20 — Working documents
 
 We confirmed that the Google Doc could be read and edited, added the Week 2 explanation there, and exported it to the local Git repository. We replaced the Word copy in the repository with Markdown so it would be easier to read in Codex and on GitHub. The team asked to keep the specification for submission and record ongoing project discussions in this separate file.
+
+## 2026-11-20 — Week 2 submission checklist
+
+The local repository contains the specification and discussion log. The notebook builder is still in the course workspace. For the Week 2 submission, move the reproducible baseline workflow into the project repository and complete these checks in order.
+
+1. Export the cleaned dataset and summarize missing values, duplicate removal, text and metadata fields, and the human/AI label distribution.
+2. Match the class counts across the two held-out tests. Check essay separation, prompt separation for the unseen-topic test, and the three grouped validation folds inside training.
+3. Fit the TF-IDF and logistic regression baseline using training folds and record the validation and test results.
+4. Report AI-class F1, the false positive rate on human essays, and the confusion matrix on both tests. Explain what changes on unseen topics and justify the baseline and split.
+
+## 2026-11-20 — Moodle submission layout
+
+We moved the specification to `report/` and the working discussion log to `ai_governance/`. We placed the three required governance files at the repository root as shown in the Lab 5 diagram and left their entries open for the team to document. The project notebooks will go in `notebooks/`. The final PDF and pinned dependencies are still pending.
