@@ -63,3 +63,19 @@ We want to evaluate the same model in two situations.
 - **Unseen topics.** If we hold out driverless cars, every essay about driverless cars goes into the unseen-topic test. The model encounters that topic for the first time when we test it.
 
 To build both final tests, reserve all essays from three topics before creating the training and validation sets. Then sample the familiar-topic test from the remaining topics, matching the number of human essays and the number of AI essays in the unseen-topic test. Use the leftover essays for training and validation. Evaluate the same fitted model on both tests and compare the AI-class F1 score and the percentage of human essays flagged as AI. This comparison shows how performance changes when the topic is new. [Evaluation protocol](../report/project-specification.md#9-evaluation-strategy-data-splitting-methodology-evaluation-metrics-and-validation-approach) · [Prompt and response](../PROMPT_LOG.md#2026-11-20--class-proportions-and-topic-holdout-in-week-2)
+
+## 2026-11-20 — Week 2 submission handoff
+
+We checked the current notebook against the Week 2 deliverables. The existing notebook explores the data, exports an 8,000/2,000 split from 10,000 essays, and evaluates a majority-class reference in cross-validation. To complete the submission, justify the dataset scope, regenerate the splits under the agreed topic protocol, and train and evaluate TF-IDF with logistic regression on both held-out tests. Submit the runnable notebook with its outputs, the cleaned data, and pinned dependencies. [Prompt and response](../PROMPT_LOG.md#2026-11-20--week-2-submission-requirements)
+
+## 2026-11-20 — Week 2 notebook verification
+
+GitHub main and local HEAD both point to `c6ce23f`. We replayed all eight code cells and reproduced both CSVs byte for byte. The confusion matrix added in `db0f11e` uses out-of-fold predictions from the majority-class model on the training essays. It contains 4,880 human essays correctly classified and 3,120 AI essays classified as human. The run reproduced 0.61 accuracy and 0.00 F1 for the AI class. The familiar-topic and unseen-topic evaluation of TF-IDF with logistic regression is still open, as are the dependency pins. [Prompt and response](../PROMPT_LOG.md#2026-11-20--verify-the-current-week-2-work)
+
+## 2026-11-20 — Completion by Week 2 deliverable
+
+The two exported subsets have zero empty fields, zero normalized duplicate essays within each file, and zero normalized text overlap between them. The full raw dataset has six groups of normalized duplicates covering 12 rows. The existing notebook checks for exact duplicates and reports initial cross-validation results from an implemented majority-class baseline. The explicit cleaning step, the two topic-based tests, and the TF-IDF logistic regression experiment remain open under the project specification. [Prompt and response](../PROMPT_LOG.md#2026-11-20--status-of-the-three-week-2-deliverables)
+
+## 2026-11-20 — AI model attribution in the prompt log
+
+We added a model field to each prompt entry and updated the repository instructions to record the assistant, model, and exact variant when known. We recorded the known Codex model family for entries from this chat and marked the two earlier models as not recorded. [Prompt and response](../PROMPT_LOG.md#2026-11-20--recording-the-ai-model)
