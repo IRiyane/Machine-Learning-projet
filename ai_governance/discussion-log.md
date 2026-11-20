@@ -48,3 +48,11 @@ We added a root `AGENTS.md` to help new agents locate the submission and discuss
 ## 2026-11-20 — Scope of the agent guide
 
 We shortened the agent guide to cover how to work in the repository. The project specification provides the methodology, and this log records decisions and progress.
+
+## 2026-11-20 — Recording substantial prompts and outputs
+
+Nathan asked the agent to record each substantial project prompt with its output. [AGENTS.md](../AGENTS.md) now tells the agent to update the applicable logs before its final response. The Week 2 notebook review is the first entry in the [prompt log](../PROMPT_LOG.md#2026-11-20--week-2-notebook-review).
+
+## 2026-11-20 — Class stratification and the new-topic test
+
+A teammate noted that the Week 2 split preserves the minority-class share. The exported files have 39% AI essays in each set and share all 15 topics. Under the agreed protocol, reserve three topics before drawing the familiar-topic test, then match the class counts across both final tests. [Prompt and response](../PROMPT_LOG.md#2026-11-20--class-proportions-and-topic-holdout-in-week-2)
