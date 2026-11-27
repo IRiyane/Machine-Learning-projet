@@ -60,3 +60,38 @@
 A standard train-test split on a single topic measures how well the detector classifies new essays on that topic. This is enough if the detector will only be used for that topic. On familiar topics, the model may pick up vocabulary that helps it classify essays but may be less useful when the writing prompt changes.
 
 We train one model and evaluate it on two sets of essays it has never seen. The first contains new essays on topics represented in training. The second contains essays from three topics held out entirely. For example, the model can train on essays about cell phones at school and then be tested on essays about grades for extracurricular activities. Comparing the two tests shows how well the detector generalizes to new writing prompts.
+
+## Lab 6 Week 3 Evaluation Results
+
+We evaluated the majority baseline, TF-IDF with logistic regression, TF-IDF with Complement Naive Bayes, and a soft vote of the two tuned text models. Each test contains 4,162 human essays and 1,429 AI essays. The familiar-topic test contains new essays on topics represented in training. The unseen-topic test contains essays from three prompts reserved entirely for testing.
+
+### Model comparison
+
+F1 combines precision and recall for the AI class. The false-positive rate is the share of human essays flagged as AI. The counts in parentheses give the number of false alerts.
+
+| Model | Familiar F1 (AI) | Familiar false positives | Unseen F1 (AI) | Unseen false positives |
+| --- | ---: | ---: | ---: | ---: |
+| Majority baseline | 0.000 | 0.00% (0) | 0.000 | 0.00% (0) |
+| Logistic regression | 0.992 | 0.17% (7) | 0.896 | 3.10% (129) |
+| Complement Naive Bayes | 0.930 | 2.96% (123) | 0.857 | 0.62% (26) |
+| Soft voting | 0.977 | 0.62% (26) | 0.903 | 0.62% (26) |
+
+[Figure 1. AI-class F1 and human false positives on the two tests.](Project-Report.pdf#page=2)
+
+### Discussion
+
+All three text models made more errors on unseen topics. The error counts rose from 24 to 294 for logistic regression, from 202 to 363 for Complement Naive Bayes, and from 65 to 258 for soft voting. All three had lower F1 on unseen topics. The majority baseline always predicted the human class.
+
+For soft voting, false alerts totalled 26 on each test and missed AI essays rose from 39 to 232 (Figures 2 and 3). On unseen topics, soft voting had the highest F1 (0.903) and made 26 false alerts (0.62%), compared with 129 (3.10%) for logistic regression. Logistic regression detected 1,264 of 1,429 AI essays, soft voting detected 1,197, and Complement Naive Bayes detected 1,092. Complement Naive Bayes also made 26 false alerts.
+
+These results describe the three held-out prompts in DAIGT v2. [Week 3 notebook](../notebooks/Week3.ipynb)
+
+### Confusion matrices
+
+[Figure 2. Confusion matrices on familiar topics. Rows show the true class and columns show the predicted class.](Project-Report.pdf#page=3)
+
+[Figure 3. Confusion matrices on unseen topics. The upper-right cells count human essays wrongly flagged as AI.](Project-Report.pdf#page=3)
+
+### Week 4 follow-up
+
+We will test decision thresholds, character-level TF-IDF, and DistilBERT to see whether they improve AI detection while keeping the human false-positive rate low. [Week 4 experiment plan](Week%203.%20Topic-Based%20Evaluation%20and%20Ensemble%20Learning.md#week-4-experiments)

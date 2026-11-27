@@ -91,3 +91,13 @@ Normalization revealed six pairs of essays with the same text after standardizin
 ## 2026-11-20 — Topic-based evaluation added to the Week 2 report
 
 We added the planned three-topic holdout, matched familiar-topic test, and three prompt-grouped validation folds to the report. The existing five-fold experiment remains documented as work already completed. The generator holdout is described as an optional extension. [Updated Week 2 report](<../report/Week 2. Data Preparation and Baseline.md>)
+
+## 2026-11-27 — Week 3 topic holdout and Lab 6
+
+Week 3 removes all 12 rows belonging to six duplicate groups and uses the remaining 44,856 essays. The seeded holdout reserves “A Cowboy Who Rode the Waves”, “Grades for extracurricular activities” and “Phones and driving”. Both tests contain 4,162 human essays and 1,429 AI essays. The training set contains 33,674 essays across 12 topics. Each validation fold keeps its validation topics out of its training rows and fits TF-IDF inside the pipeline.
+
+The grouped grid searches chose C = 4.0 for logistic regression and alpha = 1.0 for Complement NB. Soft voting had the highest AI-class F1 on the unseen-topic test (0.903). The vote and Complement NB each flagged 26 human essays (0.62%). Logistic regression flagged 129 (3.10%) and had an F1 of 0.896 on that test. [Week 3 notebook](../notebooks/Week3.ipynb)
+
+## 2026-11-27 — Week 4 experiments
+
+The Week 4 plan is to tune the soft-voting threshold, test logistic regression with character-level TF-IDF, and fine-tune DistilBERT. Settings will be chosen through validation grouped by prompt. [Week 4 experiment plan](../report/Week%203.%20Topic-Based%20Evaluation%20and%20Ensemble%20Learning.md#week-4-experiments)

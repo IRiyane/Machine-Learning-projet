@@ -1,1 +1,5 @@
-# Pending the first baseline run. Pin each dependency used by the notebook with package==version.
+# Direct dependencies used in the Week 3 notebook.
+ipython==9.17.1
+matplotlib==3.11.2
+pandas==3.1.0
+scikit-learn==1.9.1
